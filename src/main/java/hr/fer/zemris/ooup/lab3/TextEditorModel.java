@@ -244,8 +244,10 @@ public class TextEditorModel {
     }
 
     public void moveCursorToEnd() {
-        cursorLocation.setRow(lines.size() - 1);
-        cursorLocation.setColumn(lines.get(cursorLocation.getRow()).length());
+        if(!lines.isEmpty()) {
+            cursorLocation.setRow(lines.size() - 1);
+            cursorLocation.setColumn(lines.get(cursorLocation.getRow()).length());
+        }
         notifyCursorObservers();
     }
 
